@@ -62,21 +62,6 @@ Bash
 
     flutter run
 
-📂 Proje Yapısı
-
-lib/
-├── main.dart             # Uygulamanın giriş noktası ve ana sayfa
-├── health_predictor.dart # TFLite model yükleme, tahmin ve skorlama mantığı
-├── result_view.dart      # Sonuçların gösterildiği ekran
-├── test_view_1.dart      # Veri girişi: Sayfa 1 (Temel Kan)
-├── test_view_2.dart      # Veri girişi: Sayfa 2 (Organlar)
-├── test_view_3.dart      # Veri girişi: Sayfa 3 (Hormonlar)
-└── test_view_4.dart      # Veri girişi: Sayfa 4 (Spesifik Testler)
-assets/
-├── health_model.tflite   # Eğitilmiş yapay zeka modeli
-├── model_metadata.json   # Model için normalizasyon verileri (mean/scale)
-└── logo.png              # Uygulama görselleri
-
 ⚠️ Yasal Uyarı (Disclaimer)
 
 Bu uygulama yalnızca bilgilendirme ve eğitim amaçlıdır. Kesinlikle tıbbi teşhis veya tedavi yerine geçmez.
