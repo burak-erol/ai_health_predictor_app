@@ -29,6 +29,50 @@ Uygulama 4 ana test ekranı ve bir sonuç ekranından oluşur:
 
     Sonuç Ekranı: Tahmin edilen durum, güven oranı (%), sağlık skoru ve durum değerlendirmesi.
 
+📋 Kapsanan Hastalıklar, Parametreler ve Tıbbi Mantık
+ Bu projede kullanılan yapay zeka modeli, NHANES (National Health and Nutrition Examination Survey) veri tabanından elde edilen 48.932 gerçek hasta kaydı üzerinde eğitilmiştir.
+
+    Modelin sınıflandırma mantığı (Labeling Logic), Guyton & Hall Textbook of Medical Physiology ve WHO (Dünya Sağlık Örgütü) kılavuzları referans alınarak oluşturulan kural tabanlı algoritmalarla belirlenmiştir. Aşağıdaki tabloda, modelin tespit edebildiği temel hastalık sınıfları ve bu kararı verirken baz aldığı kritik eşik değerleri yer almaktadır:
+        | Parametre | Açıklama | Normal Aralık | Kritik Eşikler ve İlişkili Durumlar |
+    | :--- | :--- | :--- | :--- |
+    | **HGB** | Hemoglobin | 12.0 - 16.0 | < 11 (Anemi) |
+    | **MCV** | Ortalama Alyuvar Hacmi | 80 - 100 | < 75 (Demir Eks.), > 105 (B12 Eks.) |
+    | **WBC** | Lökosit (Beyaz Kan) | 4.000 - 10.000 | > 12.000 (Enfeksiyon), > 30.000 (Lösemi Riski) |
+    | **PLT** | Trombosit | 150 - 450 | < 100 (Trombositopeni/Siroz) |
+    | **Ferritin** | Demir Deposu | 60 - 140 | < 20 (Demir Eksikliği) |
+    | **B12** | Vitamin B12 | 300 - 700 | < 150 (B12 Eksikliği) |
+    | **Folic_Acid** | Folik Asit | 6 - 14 | *(Düşüklüğü Anemi ile ilişkilendirilir)* |
+    | **Vit_D** | D Vitamini | 20 - 60 | < 15 (Eksiklik) |
+    | **ALT** | Karaciğer Enzimi | 15 - 35 | > 100 (Hepatit/Yağlanma) |
+    | **AST** | Karaciğer Enzimi | 15 - 35 | > 100 (Hepatit) |    
+    | **GGT** | Safra Yolu Enzimi | 20 - 40 | > 60 (Yağlanma) |
+    | **Bilirubin** | Sarılık Değeri | 0.4 - 1.2 | > 2.0 (Hepatit/Siroz) |
+    | **Urea** | Üre | 20 - 40 | > 80 (Böbrek Yetmezliği) |
+    | **Creatinine** | Kreatinin | 0.7 - 1.1 | > 2.0 (Böbrek Yetmezliği) |
+    | **GFR** | Böbrek Süzme Hızı | 80 - 120 | < 50 (Böbrek Yetmezliği) |
+    | **Albumin** | Protein | 3.5 - 5.5 | < 3.0 (Siroz) |
+    | **Sodium** | Sodyum | 136 - 144 | > 146 (Dehidrasyon) |
+    | **Potassium** | Potasyum | 3.6 - 4.8 | *(Kalp ritmi için kritik)* |
+    | **Glucose** | Açlık Kan Şekeri | 70 - 110 | > 180 (Diyabet), < 60 (Hipoglisemi) |
+    | **HbA1c** | 3 Aylık Şeker | 4.0 - 6.0 | > 7.0 (Diyabet) |
+    | **Insulin** | İnsülin Direnci | 6 - 14 | *(Yüksekliği İnsülin Direnci belirtisidir)* |
+    | **TSH** | Tiroid Uyarıcı | 1.0 - 3.0 | > 6 (Hipotiroidi), < 0.3 (Hipertiroidi) |
+    | **T3** | Serbest T3 | 2.7 - 4.3 | <2.5(Hipotroid), >5.0(Hipertroid)|
+    | **T4** | Serbest T4 | 0.8 - 1.6 | < 0.8 (Hipotroid), > 2.0 (Hipertroid) |
+    | **Anti_TPO** | Haşimato Belirteci | 0 (Negatif) | 1 (Pozitif ise Otoimmün Risk) |
+    | **Troponin** | Kalp Kriz Markeri | 0 - 0.04 | > 0.5 (Kalp Krizi Riski) |
+    | **BNP** | Kalp Yetmezliği | 30 - 70 | > 400 (Kalp Yetmezliği) |
+    | **LDL** | Kötü Kolesterol | 60 - 140 | *(Yüksekliği kalp damar riski)* |
+    | **D_Dimer** | Pıhtılaşma | 100 - 300 | > 600 (Emboli/DVT) |
+    | **aPTT** | Pıhtılaşma Süresi | 24 - 36 | >50 (Hemofili, Pıhtılaşma Bozukluğu)|
+    | **CRP** | C-Reaktif Protein | 0 - 5 | > 20 (Bakteriyel Enfeksiyon) |
+    | **ESR** | Sedimantasyon | 0 - 20 | > 40 (Romatizma/Lupus) |
+    | **Procalcitonin**| Ciddi Enfeksiyon | 0 - 0.1 | > 0.5 (Bakteriyel Sepsis) |
+    | **RF** | Romatoid Faktör | 0 (Negatif) | 1 (Romatoid Artrit) |
+    | **ANA** | Lupus Testi | 0 (Negatif) | 1 (Lupus) |
+    | **HBsAg** | Hepatit B Testi | 0 (Negatif) | 1 (Hepatit B) |
+    | **Anti_HIV** | HIV Testi | 0 (Negatif) | 1 (Pozitif) |
+
 🛠 Kullanılan Teknolojiler ve Paketler
 
 Bu proje aşağıdaki teknolojiler ve Flutter paketleri kullanılarak geliştirilmiştir:
