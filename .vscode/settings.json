@@ -1,0 +1,60 @@
+{
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+      "args": ["-ExecutionPolicy", "Bypass"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "GitHub Dark",
+  "[dart]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "always"
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "allDocuments"
+  },
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "editor.suggestSelection": "first",
+  "editor.fontSize": 20,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "dart.debugExternalLibraries": true,
+  "dart.debugSdkLibraries": false,
+  "files.associations": {
+    "*.json ": "jsonc"
+  },
+  "dart.debugExternalPackageLibraries": true,
+  "explorer.confirmDragAndDrop": false,
+  "redhat.telemetry.enabled": true,
+  "workbench.colorCustomizations": {
+    "tab.activeBorderTop": "#FFE81F"
+  },
+  "window.zoomLevel": 1,
+  "cmake.configureOnOpen": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "eslint.format.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+  },
+  "cmake.ignoreCMakeListsMissing": true
+}
