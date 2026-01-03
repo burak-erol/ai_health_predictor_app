@@ -47,9 +47,8 @@ Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyi
 
     Projeyi Klonlayın:
     Bash
+    git clone https://github.com/kullaniciadi/ai_health_predictor.git cd ai_health_predictor
 
-git clone https://github.com/kullaniciadi/ai_health_predictor.git
-cd ai_health_predictor
 
 Bağımlılıkları Yükleyin:
 Bash
