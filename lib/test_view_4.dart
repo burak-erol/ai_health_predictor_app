@@ -189,145 +189,147 @@ class _TestView4State extends State<TestView4> {
           ),
         ],
       ),
-      body: Center(
-        child: Form(
-          key: _formKey,
-          child: ListView(
-            padding: const EdgeInsets.all(20.0),
-            children: [
-              _buildField(
-                controller: heartAttackMarkerController,
-                label: 'Kalp Kriz Markeri Değeri',
-                infoTitle: 'Kalp Kriz Markeri',
-              ),
-              _buildField(
-                controller: heartFailureController,
-                label: 'Kalp Yetmezliği Değeri',
-                infoTitle: 'Kalp Yetmezliği',
-              ),
-              _buildField(
-                controller: badCholesterolController,
-                label: 'Kötü Kolesterol Değeri',
-                infoTitle: 'Kötü Kolesterol',
-              ),
-              _buildField(
-                controller: clottingController,
-                label: 'Pıhtılaşma Değeri',
-                infoTitle: 'Pıhtılaşma',
-              ),
-              _buildField(
-                controller: bloodClottingTimeController,
-                label: 'Kanın Pıhtılaşma Süresi Değeri',
-                infoTitle: 'Pıhtılaşma Süresi',
-              ),
-              _buildField(
-                controller: cReactiveProteinController,
-                label: 'C-Reaktif Protein (CRP) Değeri',
-                infoTitle: 'CRP',
-              ),
-              _buildField(
-                controller: sedimentationController,
-                label: 'Sedimantasyon Değeri',
-                infoTitle: 'Sedimantasyon',
-              ),
-              _buildField(
-                controller: severeInfectionController,
-                label: 'Ciddi Enfeksiyon Değeri',
-                infoTitle: 'Ciddi Enfeksiyon',
-              ),
-              _buildField(
-                controller: rheumatoidFactorController,
-                label: 'Romatoid Faktör Değeri',
-                infoTitle: 'Romatoid Faktör',
-              ),
-              _buildField(
-                controller: lupusTestController,
-                label: 'Lupus Testi Değeri',
-                infoTitle: 'Lupus Testi',
-              ),
-              _buildField(
-                controller: hepatitisBTestController,
-                label: 'Hepatit B Testi Değeri',
-                infoTitle: 'Hepatit B',
-              ),
-              _buildField(
-                controller: hivTestController,
-                label: 'HIV Testi Değeri',
-                infoTitle: 'HIV',
-              ),
-              SizedBox(height: verticalPadding * 2),
-              SizedBox(
-                width: double.infinity,
-                height: height < 700 ? 48 : 54,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(26),
-                    ),
-                  ),
-                  onPressed: () async {
-                    if (_formKey.currentState!.validate()) {
-                      final userHealthData = [
-                        ...widget.userHealthData,
-                        double.parse(heartAttackMarkerController.text),
-                        double.parse(heartFailureController.text),
-                        double.parse(badCholesterolController.text),
-                        double.parse(clottingController.text),
-                        double.parse(bloodClottingTimeController.text),
-                        double.parse(cReactiveProteinController.text),
-                        double.parse(sedimentationController.text),
-                        double.parse(severeInfectionController.text),
-                        double.parse(rheumatoidFactorController.text),
-                        double.parse(lupusTestController.text),
-                        double.parse(hepatitisBTestController.text),
-                        double.parse(hivTestController.text),
-                        widget.vitaminD,
-                      ];
-
-                      final predict = healthPredictor.predict(userHealthData);
-
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => ResultView(resultMap: predict),
-                        ),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Lütfen tüm alanları doldurun.'),
-                        ),
-                      );
-                    }
-                  },
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(26),
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF6CCB2E), Color(0xFF18B6B0)],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
+      body: SafeArea(
+        child: Center(
+          child: Form(
+            key: _formKey,
+            child: ListView(
+              padding: const EdgeInsets.all(20.0),
+              children: [
+                _buildField(
+                  controller: heartAttackMarkerController,
+                  label: 'Kalp Kriz Markeri Değeri',
+                  infoTitle: 'Kalp Kriz Markeri',
+                ),
+                _buildField(
+                  controller: heartFailureController,
+                  label: 'Kalp Yetmezliği Değeri',
+                  infoTitle: 'Kalp Yetmezliği',
+                ),
+                _buildField(
+                  controller: badCholesterolController,
+                  label: 'Kötü Kolesterol Değeri',
+                  infoTitle: 'Kötü Kolesterol',
+                ),
+                _buildField(
+                  controller: clottingController,
+                  label: 'Pıhtılaşma Değeri',
+                  infoTitle: 'Pıhtılaşma',
+                ),
+                _buildField(
+                  controller: bloodClottingTimeController,
+                  label: 'Kanın Pıhtılaşma Süresi Değeri',
+                  infoTitle: 'Pıhtılaşma Süresi',
+                ),
+                _buildField(
+                  controller: cReactiveProteinController,
+                  label: 'C-Reaktif Protein (CRP) Değeri',
+                  infoTitle: 'CRP',
+                ),
+                _buildField(
+                  controller: sedimentationController,
+                  label: 'Sedimantasyon Değeri',
+                  infoTitle: 'Sedimantasyon',
+                ),
+                _buildField(
+                  controller: severeInfectionController,
+                  label: 'Ciddi Enfeksiyon Değeri',
+                  infoTitle: 'Ciddi Enfeksiyon',
+                ),
+                _buildField(
+                  controller: rheumatoidFactorController,
+                  label: 'Romatoid Faktör Değeri',
+                  infoTitle: 'Romatoid Faktör',
+                ),
+                _buildField(
+                  controller: lupusTestController,
+                  label: 'Lupus Testi Değeri',
+                  infoTitle: 'Lupus Testi',
+                ),
+                _buildField(
+                  controller: hepatitisBTestController,
+                  label: 'Hepatit B Testi Değeri',
+                  infoTitle: 'Hepatit B',
+                ),
+                _buildField(
+                  controller: hivTestController,
+                  label: 'HIV Testi Değeri',
+                  infoTitle: 'HIV',
+                ),
+                SizedBox(height: verticalPadding * 2),
+                SizedBox(
+                  width: double.infinity,
+                  height: height < 700 ? 48 : 54,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(26),
                       ),
                     ),
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: height < 700 ? 48 : 54,
-                      width: double.infinity,
-                      child: Text(
-                        'Hesapla',
-                        style: TextStyle(
-                          fontSize: height < 700 ? 16 : 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black54,
-                          letterSpacing: 4.5,
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        final userHealthData = [
+                          ...widget.userHealthData,
+                          double.parse(heartAttackMarkerController.text),
+                          double.parse(heartFailureController.text),
+                          double.parse(badCholesterolController.text),
+                          double.parse(clottingController.text),
+                          double.parse(bloodClottingTimeController.text),
+                          double.parse(cReactiveProteinController.text),
+                          double.parse(sedimentationController.text),
+                          double.parse(severeInfectionController.text),
+                          double.parse(rheumatoidFactorController.text),
+                          double.parse(lupusTestController.text),
+                          double.parse(hepatitisBTestController.text),
+                          double.parse(hivTestController.text),
+                          widget.vitaminD,
+                        ];
+
+                        final predict = healthPredictor.predict(userHealthData);
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ResultView(resultMap: predict),
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Lütfen tüm alanları doldurun.'),
+                          ),
+                        );
+                      }
+                    },
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(26),
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF6CCB2E), Color(0xFF18B6B0)],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                      ),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: height < 700 ? 48 : 54,
+                        width: double.infinity,
+                        child: Text(
+                          'Hesapla',
+                          style: TextStyle(
+                            fontSize: height < 700 ? 16 : 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54,
+                            letterSpacing: 4.5,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
